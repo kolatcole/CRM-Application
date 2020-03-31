@@ -45,6 +45,9 @@ namespace CRMSystem
             });
 
             services.AddScoped<IRepo<User>, UserRepo>();
+            services.AddScoped<IRepo<Product>, ProductRepo>();
+            services.AddScoped<IRepo<Price>, PriceRepo>();
+
 
 
             services.AddTransient<IProductService, ProductService>();

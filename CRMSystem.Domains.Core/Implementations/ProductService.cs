@@ -17,8 +17,8 @@ namespace CRMSystem.Domains
 
         public async Task<int> insertProductAsync(Product data)
         {
-            
-            var PID=await _pcrepo.insertAsync(data.Price);
+
+            var PID = await _pcrepo.insertAsync(data.Price);
 
             // save a product
             data.PriceID = PID;
@@ -26,6 +26,14 @@ namespace CRMSystem.Domains
 
             return PRID;
 
+
+        }
+        public async Task<int> updateProductAsync(Product data)
+        {
+            var pid = await _pRepo.updateAsync(data);
+            if (pid > 0)
+                await _pcrepo.updateAsync(data.Price);
+            return pid;
             
         }
     }

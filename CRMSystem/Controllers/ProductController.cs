@@ -27,8 +27,20 @@ namespace CRMSystem.Presentation
         [HttpPost("SaveProduct")]
         public async Task<IActionResult> Save(Product data)
         {
-            var result = await _service.insertProductAsync(data);
+             var result=await _service.insertProductAsync(data);
+             return Ok(result);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        [HttpPut("UpdateProduct")]
+        public async Task<IActionResult> Update(Product data)
+        {
+            var result = await _service.updateProductAsync(data);
             return Ok(result);
+
         }
     }
 }

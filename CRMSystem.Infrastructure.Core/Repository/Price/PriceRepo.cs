@@ -66,7 +66,7 @@ namespace CRMSystem.Infrastructure
                     newPrice.UserModified = data.UserModified;
 
                     _context.Prices.Update(newPrice);
-                    ID = await _context.SaveChangesAsync();
+                    await _context.SaveChangesAsync();
                 }
 
             }

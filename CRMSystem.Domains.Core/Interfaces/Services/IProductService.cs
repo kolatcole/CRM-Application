@@ -8,5 +8,6 @@ namespace CRMSystem.Domains
     public interface IProductService
     {
         Task<int> insertProductAsync(Product data);
+        Task<int> updateProductAsync(Product data);
     }
 }

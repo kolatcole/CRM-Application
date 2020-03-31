@@ -32,8 +32,9 @@ namespace CRMSystem.Infrastructure
                 {
                     data.DateCreated = DateTime.Now;
                     data.UserCreated = data.UserModified;
+                    ID = data.ID;
                     await _context.Customers.AddAsync(data);
-                    ID = await _context.SaveChangesAsync();
+                    await _context.SaveChangesAsync();
                 }
 
             }
