@@ -25,15 +25,24 @@ namespace CRMSystem.Infrastructure
 
         public async Task<int> insertAsync(Sale data)
         {
-            int ID = 0;
+            
+            var obj = new Sale();
             try
             {
                 if (data != null)
                 {
-                    data.DateCreated = DateTime.Now;
-                    data.UserCreated = data.UserModified;
-                    ID = data.ID;
-                    await _context.Sales.AddAsync(data);
+                    obj = new Sale 
+                    {
+                        DateCreated = DateTime.Now,
+                        UserCreated = data.UserModified,
+                        ProductID=data.ProductID,
+                        CustomerID=data.CustomerID,
+                        Quantity=data.Quantity,
+                        Amount=data.Amount,
+                        InvoiceNo=data.InvoiceNo
+                        
+                    };
+                    await _context.Sales.AddAsync(obj);
                     await _context.SaveChangesAsync();
                 }
 
@@ -42,7 +51,7 @@ namespace CRMSystem.Infrastructure
             {
                 throw ex;
             }
-            return ID;
+            return obj.ID;
         }
 
         public Task<int> insertListAsync(List<Sale> data)

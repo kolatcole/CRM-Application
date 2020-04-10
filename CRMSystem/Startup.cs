@@ -47,10 +47,16 @@ namespace CRMSystem
             services.AddScoped<IRepo<User>, UserRepo>();
             services.AddScoped<IRepo<Product>, ProductRepo>();
             services.AddScoped<IRepo<Price>, PriceRepo>();
+            services.AddScoped<IRepo<Customer>, CustomerRepo>();
+            services.AddScoped<IRepo<Sale>, SaleRepo>();
+            services.AddScoped<IInvoiceNumberRepo, InvoiceNumberRepo>();
+
+
 
 
 
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ISaleService, SaleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

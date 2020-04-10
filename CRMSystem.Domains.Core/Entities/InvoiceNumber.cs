@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CRMSystem.Domains
 {
-    public interface ISaleService
+    public class InvoiceNumber
     {
-        Task<int> Save(Sale data);
+        public int ID { get; set; }
+       public long Number { get; set; }
     }
 }

@@ -20,5 +20,6 @@ namespace CRMSystem.Infrastructure
         public DbSet<Price> Prices { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<InvoiceNumber> InvoiceNumbers { get; set; }
     }
 }

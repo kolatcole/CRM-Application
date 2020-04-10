@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace CRMSystem.Domains
 {
-    public interface ISaleService
+    public interface IInvoiceNumberRepo
     {
-        Task<int> Save(Sale data);
+
+        Task<int> insertAsync(InvoiceNumber data);
+        Task<InvoiceNumber> getAsync();
     }
 }
